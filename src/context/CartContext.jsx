@@ -1,6 +1,6 @@
 import { createContext, useState, useContext, useEffect, useRef } from 'react';
-import { auth, db } from '../firebase';
-import { onAuthStateChanged } from 'firebase/auth';
+import { db } from '../firebase';
+import { useAuth } from './AuthContext';
 import { doc, getDoc, setDoc, onSnapshot } from 'firebase/firestore';
 
 const CartContext = createContext();
@@ -8,11 +8,11 @@ const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
+    const { user } = useAuth();
     const [cart, setCart] = useState(() => {
         const savedCart = localStorage.getItem('cart');
         return savedCart ? JSON.parse(savedCart) : [];
     });
-    const [user, setUser] = useState(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const cartStateRef = import.meta.env ? useRef(cart) : { current: cart }; // Fallback for safety, though useRef is standard
@@ -27,46 +27,35 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         let unsubscribeSnapshot;
 
-        const unsubscribeAuth = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
+        if (user) {
+            // If user logs in, sync with Firestore
+            const cartRef = doc(db, 'carts', user.uid);
 
-            // Unsubscribe from previous snapshot listener if it exists to avoid memory leaks
-            if (unsubscribeSnapshot) {
-                unsubscribeSnapshot();
-                unsubscribeSnapshot = null;
-            }
-
-            if (currentUser) {
-                // If user logs in, sync with Firestore
-                const cartRef = doc(db, 'carts', currentUser.uid);
-
-                // Listen to real-time updates from Firestore
-                unsubscribeSnapshot = onSnapshot(cartRef, (docSnap) => {
-                    if (docSnap.exists()) {
-                        // Merge logic could go here, for now replacing with server state or keeping local if server is empty?
-                        // Sticking to existing logic: Server wins if exists.
-                        setCart(docSnap.data().items || []);
-                    } else {
-                        // If no cart exists in Firestore, create one with current local cart
-                        // Use ref to get current cart value
-                        const currentCart = cartStateRef.current;
-                        if (currentCart.length > 0) {
-                            setDoc(cartRef, { items: currentCart }, { merge: true });
-                        }
+            // Listen to real-time updates from Firestore
+            unsubscribeSnapshot = onSnapshot(cartRef, (docSnap) => {
+                if (docSnap.exists()) {
+                    // Merge logic could go here, for now replacing with server state or keeping local if server is empty?
+                    // Sticking to existing logic: Server wins if exists.
+                    setCart(docSnap.data().items || []);
+                } else {
+                    // If no cart exists in Firestore, create one with current local cart
+                    // Use ref to get current cart value
+                    const currentCart = cartStateRef.current;
+                    if (currentCart.length > 0) {
+                        setDoc(cartRef, { items: currentCart }, { merge: true });
                     }
-                });
-            } else {
-                // User logged out, revert to local storage
-                const savedCart = localStorage.getItem('cart');
-                setCart(savedCart ? JSON.parse(savedCart) : []);
-            }
-        });
+                }
+            });
+        } else {
+            // User logged out, revert to local storage
+            const savedCart = localStorage.getItem('cart');
+            setCart(savedCart ? JSON.parse(savedCart) : []);
+        }
 
         return () => {
             if (unsubscribeSnapshot) unsubscribeSnapshot();
-            unsubscribeAuth();
         };
-    }, []); // Only run on mount
+    }, [user]); // Run when user changes
 
     // Sync to Local Storage (always backup) and Firestore (if logged in)
     useEffect(() => {

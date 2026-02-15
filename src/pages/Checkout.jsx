@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { createOrder, getUserProfile } from '../services/firestore';
-import { auth } from '../firebase';
+import { useAuth } from '../context/AuthContext';
 
 export default function Checkout() {
     const { cart, getCartTotal, clearCart } = useCart();
@@ -14,17 +14,13 @@ export default function Checkout() {
     const [paymentMethod, setPaymentMethod] = useState('card');
 
     // User state for autofill
-    const [user, setUser] = useState(null);
+    const { user } = useAuth();
 
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
-            setUser(currentUser);
-            if (currentUser) {
-                // Here we could autofill the form with profile data
-            }
-        });
-        return () => unsubscribe();
-    }, []);
+        if (user) {
+            // Here we could autofill the form with profile data
+        }
+    }, [user]);
 
     const handlePlaceOrder = async () => {
         if (cart.length === 0) {

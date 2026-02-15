@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
-import { auth, googleProvider } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup } from 'firebase/auth';
+import { useAuth } from '../context/AuthContext';
 import { createUserProfile, getUserProfile, getUserOrders, updateUserProfile } from '../services/firestore';
 
 export default function Profile() {
+    const { user, login, signup, logout, googleSignIn } = useAuth();
     const [isLogin, setIsLogin] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [user, setUser] = useState(null);
     const [userProfile, setUserProfile] = useState(null);
     const [orders, setOrders] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loadingData, setLoadingData] = useState(false);
 
     // Editing State
     const [isEditing, setIsEditing] = useState(false);
@@ -22,13 +21,13 @@ export default function Profile() {
     });
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
-            setUser(currentUser);
-            if (currentUser) {
+        const fetchUserData = async () => {
+            if (user) {
+                setLoadingData(true);
                 // Ensure profile exists
-                await createUserProfile(currentUser);
+                await createUserProfile(user);
                 // Fetch profile data
-                const profile = await getUserProfile(currentUser.uid);
+                const profile = await getUserProfile(user.uid);
                 setUserProfile(profile);
                 if (profile) {
                     setEditForm({
@@ -38,26 +37,25 @@ export default function Profile() {
                     });
                 }
                 // Fetch orders
-                const userOrders = await getUserOrders(currentUser.uid);
+                const userOrders = await getUserOrders(user.uid);
                 setOrders(userOrders);
+                setLoadingData(false);
             } else {
                 setUserProfile(null);
                 setOrders([]);
             }
-            setLoading(false);
-        });
-        return () => unsubscribe();
-    }, []);
+        };
+        fetchUserData();
+    }, [user]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         try {
-            let userCredential;
             if (isLogin) {
-                userCredential = await signInWithEmailAndPassword(auth, email, password);
+                await login(email, password);
             } else {
-                userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                const userCredential = await signup(email, password);
                 // Create profile immediately on signup
                 await createUserProfile(userCredential.user);
             }
@@ -70,7 +68,7 @@ export default function Profile() {
 
     const handleLogout = async () => {
         try {
-            await signOut(auth);
+            await logout();
         } catch (err) {
             console.error("Error signing out: ", err);
         }
@@ -78,7 +76,7 @@ export default function Profile() {
 
     const handleGoogleSignIn = async () => {
         try {
-            const result = await signInWithPopup(auth, googleProvider);
+            const result = await googleSignIn();
             await createUserProfile(result.user);
         } catch (err) {
             setError(err.message);
@@ -97,7 +95,7 @@ export default function Profile() {
         }
     };
 
-    if (loading) {
+    if (loadingData) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-background-light dark:bg-background-dark text-primary dark:text-white">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>

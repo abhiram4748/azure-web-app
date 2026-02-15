@@ -53,6 +53,33 @@ app.get('/api/products', async (req, res) => {
     }
 });
 
+// Create/Seed Product (Admin)
+app.post('/api/products', async (req, res) => {
+    try {
+        const { id, title, price, description, category, image, stock } = req.body;
+
+        // Basic validation
+        if (!title || !price) {
+            return res.status(400).json({ error: 'Title and price are required' });
+        }
+
+        const result = await sql.query`
+            MERGE Products AS target
+            USING (SELECT ${id} as id, ${title} as title, ${price} as price, ${description} as description, ${category} as category, ${image} as image_url, ${stock} as stock_quantity) AS source
+            ON (target.id = source.id)
+            WHEN MATCHED THEN
+                UPDATE SET title = source.title, price = source.price, description = source.description, category = source.category, image_url = source.image_url, stock_quantity = source.stock_quantity
+            WHEN NOT MATCHED THEN
+                INSERT (id, title, price, description, category, image_url, stock_quantity) VALUES (source.id, source.title, source.price, source.description, source.category, source.image_url, source.stock_quantity);
+        `;
+
+        res.status(201).json({ message: 'Product saved successfully' });
+    } catch (err) {
+        console.error('Error saving product:', err);
+        res.status(500).json({ error: 'Failed to save product' });
+    }
+});
+
 // Get single product by ID
 app.get('/api/products/:id', async (req, res) => {
     try {
