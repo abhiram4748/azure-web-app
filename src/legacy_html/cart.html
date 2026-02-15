@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Shopping Bag | LUXE Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#121212",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#191919",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-primary dark:text-white transition-colors duration-300">
+<div class="layout-container flex h-full grow flex-col min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black px-6 md:px-10 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-2">
+<div class="size-6 text-primary dark:text-white">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"></path>
+</svg>
+</div>
+<h2 class="text-xl font-black leading-tight tracking-tighter">LUXE</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8 uppercase text-[11px] tracking-[0.2em] font-medium">
+<a class="hover:opacity-60 transition-opacity" href="#">New Arrivals</a>
+<a class="hover:opacity-60 transition-opacity" href="#">Collections</a>
+<a class="hover:opacity-60 transition-opacity" href="#">Men</a>
+<a class="hover:opacity-60 transition-opacity" href="#">Women</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden sm:flex items-center border-b border-neutral-300 dark:border-neutral-700 pb-1">
+<span class="material-symbols-outlined opacity-50">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-[10px] tracking-widest placeholder:text-neutral-400 w-32" placeholder="SEARCH" type="text"/>
+</div>
+<div class="flex gap-4">
+<button class="hover:opacity-60 transition-opacity">
+<span class="material-symbols-outlined">person</span>
+</button>
+<button class="hover:opacity-60 transition-opacity relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white dark:bg-white dark:text-black text-[8px] rounded-full size-3.5 flex items-center justify-center font-bold">3</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 max-w-7xl mx-auto w-full px-6 md:px-10 py-12 md:py-20">
+<div class="mb-12">
+<h1 class="text-3xl md:text-4xl font-light tracking-tight text-primary dark:text-white mb-2 uppercase">Your Shopping Bag</h1>
+<p class="text-neutral-500 dark:text-neutral-400 text-sm uppercase tracking-widest">3 Items selected</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Shopping Items List -->
+<div class="flex-grow space-y-8">
+<!-- Item 1 -->
+<div class="flex gap-6 pb-8 border-b border-neutral-200 dark:border-neutral-800">
+<div class="w-32 h-44 md:w-40 md:h-52 bg-neutral-100 dark:bg-neutral-900 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500" data-alt="Premium charcoal grey structured wool coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoWYOY3FFmTHxt9lmB7g1BQNmulJAH2xjXaT9gmyRiRlvBnbsApIkf8fSFw9ydNtZaSOy4kcxoLdLHgvwTRwG-5u7R2Ad6X1Sbmdz7S20kVbcE7h-XckEl6mnQNe7b8wjKHlckaiTj9aRZt5vmx6vkO2BQjf3jRqFNycAisRoD6lZq7JFI3-APio7aneWCqJy1AhvMXUXYgLOdALYdXPf40um_BF4J68XAzvE1yDP57TyFQmJ3qV6ZSyH3vWFak3Xk9ZHPnaSqKA3l"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-1">LUXE MAINLINE</h3>
+<p class="text-lg font-medium leading-tight">Structured Wool Coat</p>
+<div class="mt-2 space-y-1 text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
+<p>Color: Charcoal Grey</p>
+<p>Size: EU 42</p>
+</div>
+</div>
+<p class="text-lg font-semibold">$1,250</p>
+</div>
+<div class="flex justify-between items-end mt-4">
+<div class="flex items-center border border-neutral-200 dark:border-neutral-800 rounded px-2 py-1">
+<button class="p-1 hover:text-neutral-400"><span class="material-symbols-outlined !text-sm">remove</span></button>
+<span class="mx-4 text-sm font-medium">1</span>
+<button class="p-1 hover:text-neutral-400"><span class="material-symbols-outlined !text-sm">add</span></button>
+</div>
+<button class="text-[10px] uppercase tracking-[0.2em] text-neutral-400 hover:text-red-500 transition-colors">Remove</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-6 pb-8 border-b border-neutral-200 dark:border-neutral-800">
+<div class="w-32 h-44 md:w-40 md:h-52 bg-neutral-100 dark:bg-neutral-900 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500" data-alt="Soft white cashmere turtleneck sweater" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBctHefleuBMTbJgMP8W5EuVncLvKGOCwrIRLGXdKHyBE9xjks1gLYPvfeM2_-OIaHEnfSAGpRqBnT5vxLoQ_JEqLh8DjbFWE10Y9pSckw9_0iSvpC_TTq7feCkzGXJ-zfaR6BIOCCoXCfXqL8_KNULIUBTKjMy8PhjD7N9d-L4TswVVcYtG0TnBYcLYeHDliw0sWazZLZD5XugguCkhE1ylZiaknHhdY2-86Ru4B7sAn_uaTVyoaw053zLi8miHKAKDGoQ6w0BJ7aY"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-1">ESSENTIALS</h3>
+<p class="text-lg font-medium leading-tight">Cashmere Turtleneck</p>
+<div class="mt-2 space-y-1 text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
+<p>Color: Soft White</p>
+<p>Size: Medium</p>
+</div>
+</div>
+<p class="text-lg font-semibold">$450</p>
+</div>
+<div class="flex justify-between items-end mt-4">
+<div class="flex items-center border border-neutral-200 dark:border-neutral-800 rounded px-2 py-1">
+<button class="p-1 hover:text-neutral-400"><span class="material-symbols-outlined !text-sm">remove</span></button>
+<span class="mx-4 text-sm font-medium">1</span>
+<button class="p-1 hover:text-neutral-400"><span class="material-symbols-outlined !text-sm">add</span></button>
+</div>
+<button class="text-[10px] uppercase tracking-[0.2em] text-neutral-400 hover:text-red-500 transition-colors">Remove</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex gap-6 pb-8 border-b border-neutral-200 dark:border-neutral-800">
+<div class="w-32 h-44 md:w-40 md:h-52 bg-neutral-100 dark:bg-neutral-900 overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500" data-alt="Matte black slim-fit tailored trousers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu9JC0afTOTf24hZCbMgtCpEL49brjQl306BnEAVorCrpAS6Iikqh4-VJIPi0vo9IOVqtrY_5np6e_rGqBrOK19qDqdGzLU_V8k1HXK0xdRb6-Elvs2I6JaSlv2YLO_sHGRhOATcjEqm6Fh-6xpuAMKrhDRuqJ2JaoLUWFmaba7qGr6CdPDeQ-LY31-9y1MGFa0zJZjxArFlaZbrUAHrkkb_6lYl3AYmRCpVIvigf318y3_EjKtaQszA9W6VhUttb57ulmUx41U93C"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-1">LUXE TAILORING</h3>
+<p class="text-lg font-medium leading-tight">Slim-Fit Tailored Trousers</p>
+<div class="mt-2 space-y-1 text-xs text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
+<p>Color: Matte Black</p>
+<p>Size: 32</p>
+</div>
+</div>
+<p class="text-lg font-semibold">$380</p>
+</div>
+<div class="flex justify-between items-end mt-4">
+<div class="flex items-center border border-neutral-200 dark:border-neutral-800 rounded px-2 py-1">
+<button class="p-1 hover:text-neutral-400"><span class="material-symbols-outlined !text-sm">remove</span></button>
+<span class="mx-4 text-sm font-medium">1</span>
+<button class="p-1 hover:text-neutral-400"><span class="material-symbols-outlined !text-sm">add</span></button>
+</div>
+<button class="text-[10px] uppercase tracking-[0.2em] text-neutral-400 hover:text-red-500 transition-colors">Remove</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Order Summary Sidebar -->
+<div class="w-full lg:w-[400px]">
+<div class="bg-white dark:bg-neutral-900 p-8 sticky top-28 border border-neutral-100 dark:border-neutral-800 shadow-sm">
+<h2 class="text-sm font-bold uppercase tracking-[0.2em] mb-8 border-b border-neutral-100 dark:border-neutral-800 pb-4">Order Summary</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-sm uppercase tracking-widest opacity-70">
+<span>Subtotal</span>
+<span>$2,080.00</span>
+</div>
+<div class="flex justify-between text-sm uppercase tracking-widest opacity-70">
+<span>Estimated Shipping</span>
+<span class="text-green-600 dark:text-green-400">Complimentary</span>
+</div>
+<div class="flex justify-between text-sm uppercase tracking-widest opacity-70">
+<span>Estimated Tax</span>
+<span>$166.40</span>
+</div>
+</div>
+<div class="flex justify-between text-xl font-bold uppercase tracking-widest pt-6 border-t border-neutral-100 dark:border-neutral-800 mb-10">
+<span>Total</span>
+<span>$2,246.40</span>
+</div>
+<button class="w-full bg-primary text-white dark:bg-white dark:text-black py-5 text-xs font-bold uppercase tracking-[0.3em] hover:opacity-90 transition-opacity mb-4">
+                            Proceed to Checkout
+                        </button>
+<div class="flex flex-col gap-4 mt-8 opacity-60">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined !text-lg">lock</span>
+<span class="text-[10px] uppercase tracking-widest">Secure Checkout Guaranteed</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined !text-lg">local_shipping</span>
+<span class="text-[10px] uppercase tracking-widest">Free Express Shipping on $500+</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined !text-lg">replay</span>
+<span class="text-[10px] uppercase tracking-widest">30-Day Effortless Returns</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="mt-auto py-10 px-10 border-t border-neutral-200 dark:border-neutral-800 bg-white dark:bg-black">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-8">
+<p class="text-[10px] uppercase tracking-widest opacity-50">© 2024 LUXE Premium Brand</p>
+<a class="text-[10px] uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="text-[10px] uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+</div>
+<div class="flex gap-6 opacity-50">
+<a class="hover:opacity-100 transition-opacity" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="hover:opacity-100 transition-opacity" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="hover:opacity-100 transition-opacity" href="#"><span class="material-symbols-outlined">chat</span></a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

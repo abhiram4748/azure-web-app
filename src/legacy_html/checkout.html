@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secure Checkout | LUXE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#121212",
+                        "accent-beige": "#F5F5F0",
+                        "background-light": "#fcfcfc",
+                        "background-dark": "#191919",
+                        "border-light": "#ededed",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .floating-label-group {
+            position: relative;
+        }
+        .floating-label-group input:focus ~ label,
+        .floating-label-group input:not(:placeholder-shown) ~ label {
+            top: -0.5rem;
+            left: 0.8rem;
+            font-size: 0.75rem;
+            background-color: white;
+            padding: 0 0.4rem;
+            color: #121212;
+        }
+        .floating-label-group label {
+            position: absolute;
+            top: 1.1rem;
+            left: 1rem;
+            transition: all 0.2s ease-out;
+            pointer-events: none;
+            color: #737373;
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4d4d4;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-primary antialiased">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-border-light dark:border-neutral-800">
+<div class="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="size-6 text-primary dark:text-white">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold tracking-tighter dark:text-white uppercase">Luxe</h1>
+</div>
+<div class="flex items-center gap-6">
+<a class="text-xs font-semibold tracking-widest text-neutral-500 hover:text-primary transition-colors flex items-center gap-1 uppercase" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                    Back to Bag
+                </a>
+<div class="h-4 w-px bg-neutral-200"></div>
+<div class="flex items-center gap-2 text-xs font-medium text-neutral-400">
+<span class="material-symbols-outlined text-base">lock</span>
+                    SECURE CHECKOUT
+                </div>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-6 py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Left Column: Checkout Form -->
+<div class="lg:col-span-7 space-y-12">
+<!-- Progress Stepper -->
+<div class="flex items-center gap-4 text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400">
+<span class="text-primary">01 Information</span>
+<span class="w-8 h-px bg-neutral-200"></span>
+<span>02 Shipping</span>
+<span class="w-8 h-px bg-neutral-200"></span>
+<span>03 Payment</span>
+</div>
+<!-- Section: Shipping Address -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-semibold tracking-tight">Shipping Address</h2>
+<p class="text-sm text-neutral-500">Already have an account? <a class="text-primary underline underline-offset-4" href="#">Log in</a></p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="floating-label-group col-span-2">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="email" placeholder=" " type="text"/>
+<label for="email">Email Address</label>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="fname" placeholder=" " type="text"/>
+<label for="fname">First Name</label>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="lname" placeholder=" " type="text"/>
+<label for="lname">Last Name</label>
+</div>
+<div class="floating-label-group col-span-2">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="address" placeholder=" " type="text"/>
+<label for="address">Address</label>
+</div>
+<div class="floating-label-group col-span-2">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="apartment" placeholder=" " type="text"/>
+<label for="apartment">Apartment, suite, etc. (optional)</label>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="city" placeholder=" " type="text"/>
+<label for="city">City</label>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="zip" placeholder=" " type="text"/>
+<label for="zip">Postal Code</label>
+</div>
+</div>
+</section>
+<!-- Section: Shipping Method -->
+<section class="space-y-6">
+<h2 class="text-xl font-semibold tracking-tight">Delivery Method</h2>
+<div class="space-y-3">
+<label class="flex items-center justify-between p-4 border rounded-lg cursor-pointer bg-white border-primary border-opacity-100 ring-1 ring-primary transition-all">
+<div class="flex items-center gap-3">
+<div class="size-4 rounded-full border-4 border-primary"></div>
+<div>
+<p class="text-sm font-semibold">Standard Shipping</p>
+<p class="text-xs text-neutral-500">3-5 business days</p>
+</div>
+</div>
+<p class="text-sm font-medium">Free</p>
+</label>
+<label class="flex items-center justify-between p-4 border rounded-lg border-neutral-200 cursor-pointer bg-white hover:border-neutral-300 transition-all">
+<div class="flex items-center gap-3">
+<div class="size-4 rounded-full border border-neutral-300"></div>
+<div>
+<p class="text-sm font-semibold text-neutral-600">Express Delivery</p>
+<p class="text-xs text-neutral-500">1-2 business days</p>
+</div>
+</div>
+<p class="text-sm font-medium">$25.00</p>
+</label>
+</div>
+</section>
+<!-- Section: Payment -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-semibold tracking-tight">Payment Method</h2>
+<div class="flex gap-2 opacity-60">
+<img alt="Visa" class="h-4" data-alt="Visa logo symbol" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHG_B02sSEFPzAqVrSL-dqVeWjUf7FI_xzXDMHE6i1JGoiY2VzJo0gFV_xkhdQaD4ocKL_okMaw4SR68S-0NUCZlS78KDmombIBOuxU4vSE7_vrWC2O3m0wutjiIbGwkQ-0rZr67xA3V9PPf9bhbrtLRHBxORPXjz2h-Av6hfwNqFN4dVYdZ-I8A6Ytpo5X9ROWLcmOLvnDa0irz5SubYJmdz3c-U6riDBkXtkxKnZAv3pFGFy-yqarlszU_Vz8OaumUaD8PeRNDrp"/>
+<img alt="Mastercard" class="h-4" data-alt="Mastercard logo symbol" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdmiDj8aHiQ18rgUe0E48lVLGg6c4sd24EpLUSHRW4dPg-RFwd-N_ex2LBnGjcLuCIs9yFSISDiJ-5-53EIPx3m78VNMi7e7qaIXSjzMka7RgnHACZnX4kAjHR40C1T_sAF2e2hBzBMLRvYfrpWOkqN9psKrbeIu5Sm6nJ6Nnd8fJ4c1YBm0RJiXxgbzb1dukYMfcasMSk0oI4jaD9_uV92vG7Ra7UqIh9Jw6aRnXX2zZwD27SHot0gk-jCeipGU8Un3dSbWSGtCAR"/>
+</div>
+</div>
+<div class="p-6 bg-accent-beige/50 border border-neutral-100 rounded-xl space-y-4">
+<div class="floating-label-group">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="card" placeholder=" " type="text"/>
+<label for="card">Card Number</label>
+<span class="material-symbols-outlined absolute right-4 top-4 text-neutral-400">credit_card</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="floating-label-group">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="expiry" placeholder=" " type="text"/>
+<label for="expiry">Expiry (MM/YY)</label>
+</div>
+<div class="floating-label-group">
+<input class="w-full h-14 px-4 rounded-lg border-neutral-200 bg-white focus:ring-1 focus:ring-primary focus:border-primary transition-all outline-none" id="cvv" placeholder=" " type="text"/>
+<label for="cvv">CVV</label>
+<span class="material-symbols-outlined absolute right-4 top-4 text-neutral-400">help_outline</span>
+</div>
+</div>
+</div>
+</section>
+<div class="pt-4">
+<button class="w-full bg-primary text-white py-5 rounded-lg font-bold tracking-[0.2em] text-sm hover:bg-neutral-800 transition-all uppercase shadow-xl shadow-black/10">
+                        Place Order • $1,485.00
+                    </button>
+<p class="text-[10px] text-center text-neutral-400 mt-4 uppercase tracking-widest">
+                        By clicking place order you agree to our terms and conditions
+                    </p>
+</div>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="lg:col-span-5">
+<div class="sticky top-32 space-y-8">
+<div class="bg-white dark:bg-neutral-900 border border-border-light dark:border-neutral-800 rounded-xl p-8">
+<h3 class="text-sm font-bold tracking-[0.2em] uppercase mb-8 pb-4 border-b border-neutral-50">Order Summary</h3>
+<!-- Product List -->
+<div class="space-y-6 mb-8">
+<!-- Item 1 -->
+<div class="flex gap-4">
+<div class="relative group">
+<div class="size-24 bg-neutral-100 rounded-lg overflow-hidden">
+<img alt="Minimalist Wool Coat" class="w-full h-full object-cover mix-blend-multiply" data-alt="Luxury charcoal wool coat minimalist design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIWcwR33dX7JiVhyrXtPo7g00wPGIlxTmR135h1tTk27G6gfhCfoEfFN8rGBVSw6kq5dFb0TuWuWpGKOyRsw3H4otHVG0QK4GgWH5Edm0C4LbBmPT6rVuJmrAljNWqd2GGEVQS8VxC2CVf0qGcvTZvsfjW5FPmYFqjXXPw9BQc24CVYqc8Iok0EX0aaKA0TstnJnP_B3FkKhf72Qgz3T-K96G3zpTj4Hu6NdQ_Vl7-cwZO3aHgBpCWiGzrvfgyvfDw-PKfqHI0rY4J"/>
+</div>
+<span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] size-5 flex items-center justify-center rounded-full font-bold">1</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-semibold">Structured Wool Overcoat</h4>
+<p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider">Charcoal / Large</p>
+</div>
+<p class="text-sm font-medium">$895.00</p>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-4">
+<div class="relative group">
+<div class="size-24 bg-neutral-100 rounded-lg overflow-hidden">
+<img alt="Leather Tote Bag" class="w-full h-full object-cover mix-blend-multiply" data-alt="Premium black pebble grain leather tote" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2rs2HtscsA9B0Zz7Be2MjCPYZQKg7d2Vfx2xCsnhEo7L7pSnVrn8xGHDkFgHJEJkesQ1rC9790S9jEcFhdS7QtRb0BMK5kUHR85MDfnFfHJ7_80s09jmPqBo47CmnL0TfRxOaT9naMpQrzk1wwSQNYpnEAwoIo5HvEUO6I_WRE5XZZ77kGO8oEJauoAPZ2IWSJtRLXu8xqm9X9piqLjcn2QkMD6hFEXHQ80F8woWfWIOZ6iscOHwDSk4QJG7XwCPgsZtlSSBmbqCa"/>
+</div>
+<span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] size-5 flex items-center justify-center rounded-full font-bold">1</span>
+</div>
+<div class="flex-1 flex flex-col justify-center">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-semibold">Pebbled Leather Carryall</h4>
+<p class="text-xs text-neutral-500 mt-1 uppercase tracking-wider">Onyx / One Size</p>
+</div>
+<p class="text-sm font-medium">$590.00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="flex gap-2 mb-8">
+<input class="flex-1 h-12 bg-neutral-50 border-neutral-100 rounded-lg px-4 text-sm focus:ring-primary focus:border-primary" placeholder="Promo code" type="text"/>
+<button class="px-6 h-12 bg-neutral-100 text-neutral-600 font-semibold text-xs rounded-lg hover:bg-neutral-200 transition-colors uppercase tracking-widest">Apply</button>
+</div>
+<!-- Cost Breakdown -->
+<div class="space-y-3 pt-6 border-t border-neutral-50">
+<div class="flex justify-between text-sm">
+<span class="text-neutral-500">Subtotal</span>
+<span class="font-medium">$1,485.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-neutral-500">Shipping</span>
+<span class="text-neutral-400 font-medium">Free</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-neutral-500">Taxes (Estimated)</span>
+<span class="font-medium">$0.00</span>
+</div>
+<div class="flex justify-between text-lg font-bold pt-4 text-primary">
+<span>Total</span>
+<span>$1,485.00</span>
+</div>
+</div>
+</div>
+<!-- Trust Indicators -->
+<div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 px-4 opacity-40">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">shield</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">Secure SSL Encryption</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">package_2</span>
+<span class="text-[10px] font-bold tracking-widest uppercase">30-Day Returns</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="max-w-[1200px] mx-auto px-6 py-12 border-t border-border-light mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-xs text-neutral-400 uppercase tracking-widest">© 2024 LUXE ATELIER. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8 text-[10px] font-bold tracking-[0.2em] text-neutral-400 uppercase">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+</body></html>

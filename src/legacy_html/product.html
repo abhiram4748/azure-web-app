@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Details - LUXE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#121212",
+                "gold-accent": "#D4AF37",
+                "background-light": "#f7f7f7",
+                "background-dark": "#191919",
+              },
+              fontFamily: {
+                "display": ["Inter", "sans-serif"],
+                "serif": ["Playfair Display", "serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-primary dark:text-white antialiased">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
+<div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<a class="flex items-center gap-2" href="#">
+<span class="text-2xl font-bold tracking-tighter">LUXE</span>
+</a>
+<nav class="hidden lg:flex items-center gap-8 text-sm font-medium tracking-wide uppercase">
+<a class="hover:text-gold-accent transition-colors" href="#">New Arrivals</a>
+<a class="hover:text-gold-accent transition-colors" href="#">Collections</a>
+<a class="hover:text-gold-accent transition-colors" href="#">Men</a>
+<a class="hover:text-gold-accent transition-colors" href="#">Women</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center border-b border-neutral-300 dark:border-neutral-700 pb-1">
+<span class="material-symbols-outlined text-xl opacity-60">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 placeholder:text-neutral-400" placeholder="Search" type="text"/>
+</div>
+<button class="relative">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary dark:bg-white text-white dark:text-primary text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">2</span>
+</button>
+<button>
+<span class="material-symbols-outlined text-2xl">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-[1440px] mx-auto px-6 lg:px-12 py-8">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-xs uppercase tracking-widest text-neutral-500 mb-12">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Women</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Outerwear</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary dark:text-white font-bold">Signature Silk Wrap Blouse</span>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Left Side: Image Gallery -->
+<div class="lg:col-span-7 space-y-4">
+<div class="aspect-[3/4] w-full bg-neutral-100 overflow-hidden rounded-lg">
+<div class="w-full h-full bg-center bg-no-repeat bg-cover" data-alt="High-resolution fashion photo of silk blouse on model" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAYRp3CV33FYhoP87M38YC76pPQC0DOSvONA8F7i-vZArGNtJZC26xrm7E2npg91KJU8cis2Uec5hi_IyGPyWvQej-bps41BTlWBLNXgYVIHJWd4RSHiTCO-q_Ivg_1yPz99Tt3xRsvP5AvOHkk9gDsgTke41eRfHNtqF_ZnBl3kRYMCmOlpn-3RUcmluWXsXrD51WHuvwd3BXUvcu0vEXh3Eb6XswYR-aulZg10zAcl6pwGw9_9hcTjM1Ag4uGGdxaEswxuE-A7h27");'>
+</div>
+</div>
+<!-- Thumbnails -->
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square bg-neutral-200 rounded-md cursor-pointer ring-1 ring-primary/20 hover:ring-primary transition-all overflow-hidden">
+<div class="w-full h-full bg-center bg-cover" data-alt="Silk blouse front view thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAZlJq_ov34AMyM81TPdbPuhAA3ieqfetMhid4S5q09eugwLGJQ6AnsJ9rg41c3Az5PTWML9XkWTh_4LD1eB4C9z9flXP4k5rgFldeMZhUapip2TArq_GzUoL8c7WzdxIKPl8XMSlN68yo-wITDlU2-c6rynTt3wDNeTGRWt6QZS-KVcS1pm4m8LZdj2XH5V6JPZ7sHwUEWZtTUhT7OWClwX1HBhYP-3zkEWbYs_sZzPOFnVFcb0yxKxzy9jHdybJacIoVY4kVRynvx");'></div>
+</div>
+<div class="aspect-square bg-neutral-200 rounded-md cursor-pointer hover:ring-1 ring-primary/40 transition-all overflow-hidden">
+<div class="w-full h-full bg-center bg-cover" data-alt="Silk blouse back view thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_zMiQ0Dt9YDh0PGpC7IbaRGSzVpMjjc0xssD-9R-5nVx5hyzEwTXlFqQ6lghQgGdMS0DDhhOY0Tn-QQ38NYShlho17wdyxVr5MsEl2FnIJ2PMB6R9MiO-L7IbOjvN5lIrjxOuf9uYOQ4y4w44bbKLyIp7CSvOJsUfzGSGhgbhUjG9LgQqksA4F7WfN9FG2Q0uwe0cycxVxbUTRJBXl3qE0TZYkLtvb0opXLp3WbgzBMdHhqIrWHYMhk_0iH78_YrqNqB0rHvy6-Vv");'></div>
+</div>
+<div class="aspect-square bg-neutral-200 rounded-md cursor-pointer hover:ring-1 ring-primary/40 transition-all overflow-hidden">
+<div class="w-full h-full bg-center bg-cover" data-alt="Silk blouse detail texture thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA7XrutOXhKMVK0JHMDXKeGbBBJUecTTA_I46zdTE_VBnf8ytWhrun1bI8DapwNVghmigO_SbVQDsm_HZ96gYloFkSAnN0WbUSFcG7nEOWncyXEE0K9dnTNDsAmNYZE3WTwpMgXgLS3kzxVEVRsTkZ2Mrtmx-qJQx0TN4IQZplLUgtcr4_YPhKiO5omkbXQe6jwBEH536K57uqjlQGJ-Hldn9-HPWB3sIewdfSWwXrU_SNo7muucBHEP_QDuJ-wq44qFAvBoskhZWwI");'></div>
+</div>
+<div class="aspect-square bg-neutral-200 rounded-md cursor-pointer hover:ring-1 ring-primary/40 transition-all overflow-hidden">
+<div class="w-full h-full bg-center bg-cover" data-alt="Silk blouse lifestyle shot thumbnail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXhyHa-RIgNWhwO0i4iOv8BTwbr9_qq8KqriFgeBES1KsRohSLhfQGW2YcCr1gFFaXktAMN0K7qpLEXGddnxApKNpyZAquCg8O5CogSFFGCR0IrEzcwSCu5fm_Ax67Sx6j9mBGKpQfST89oewHZCQQeinntKKjiOISPVd1gX1eLQQGmmulciKBNNybqZYOhZFYwJOHuxXblkWvT9fCWFW9vHS8hzyCEpisCZrHBPmDOr4zuUfhYTv45ez0A55AgD0ZcgNA_k9cJT5v");'></div>
+</div>
+</div>
+</div>
+<!-- Right Side: Product Info -->
+<div class="lg:col-span-5 relative">
+<div class="sticky top-32 space-y-8">
+<div>
+<span class="text-xs font-bold tracking-[0.2em] uppercase text-neutral-400 block mb-3">Essentials Collection</span>
+<h1 class="font-serif text-5xl lg:text-6xl text-primary dark:text-white leading-tight mb-4">
+                            Signature Silk <br/>Wrap Blouse
+                        </h1>
+<p class="text-2xl font-medium text-gold-accent">$450.00</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-sm font-bold uppercase tracking-widest">Select Size</span>
+<a class="text-xs underline text-neutral-500 hover:text-primary transition-colors" href="#">Size Guide</a>
+</div>
+<div class="flex gap-4">
+<button class="size-12 rounded-full border border-neutral-300 flex items-center justify-center text-sm font-medium hover:border-primary transition-all">S</button>
+<button class="size-12 rounded-full border-2 border-primary flex items-center justify-center text-sm font-bold bg-primary text-white">M</button>
+<button class="size-12 rounded-full border border-neutral-300 flex items-center justify-center text-sm font-medium hover:border-primary transition-all">L</button>
+<button class="size-12 rounded-full border border-neutral-300 flex items-center justify-center text-sm font-medium hover:border-primary transition-all">XL</button>
+</div>
+</div>
+<div class="space-y-4 pt-4">
+<button class="w-full py-5 bg-primary dark:bg-white text-white dark:text-primary font-bold uppercase tracking-widest hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors rounded-none">
+                            Add to Cart
+                        </button>
+<button class="w-full py-5 border border-primary dark:border-white text-primary dark:text-white font-bold uppercase tracking-widest hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors rounded-none">
+                            Express Checkout
+                        </button>
+</div>
+<!-- Accordion Info -->
+<div class="divide-y divide-neutral-200 dark:divide-neutral-800 border-t border-b border-neutral-200 dark:border-neutral-800 pt-2">
+<details class="group py-4" open="">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="text-sm font-bold uppercase tracking-widest">Product Description</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-4 text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                                Expertly crafted from 100% heavy-weight mulberry silk, this wrap blouse features an elegant draped neckline and elongated cuffs. The signature silhouette offers a versatile transition from professional environments to evening events.
+                            </div>
+</details>
+<details class="group py-4">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="text-sm font-bold uppercase tracking-widest">Composition &amp; Care</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-4 text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                                100% Silk. Dry clean only. Iron on low heat. Sustainably sourced fabrics.
+                            </div>
+</details>
+<details class="group py-4">
+<summary class="flex justify-between items-center cursor-pointer list-none">
+<span class="text-sm font-bold uppercase tracking-widest">Shipping &amp; Returns</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<div class="mt-4 text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
+                                Complementary standard shipping on all orders over $300. 14-day returns policy applies.
+                            </div>
+</details>
+</div>
+<div class="flex gap-8 pt-4 opacity-70">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">workspace_premium</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Premium Quality</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">eco</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Eco-Conscious</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">local_shipping</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Fast Delivery</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Related Products Section -->
+<section class="mt-32 pb-20">
+<h2 class="font-serif text-3xl mb-12">Complete the Look</h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-neutral-100 rounded-lg mb-4">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Fashion accessory to complete the look" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAiFmdIR-wt1obM5rEmZpGZxJVVIhbsOk120ESw1277SfCrSxWCEx7YCcHcXN3-Y3xem0piME3kRSqGw8UCLA3h2JLZVEzr96d7ZF0ie6x9m_xvv0mnVpcRRk9UY52-iTrhCBsu9zkUucU_OHhHU7hBdz-nTkK8aq3C0C-dv2hD_l2PtANLCOM82hWqeNuQzQqfpDAFoIZQJXTcPvgKydJRsSP04uHAQZ8m8fDSuwPpRgnavApKWBhj5HuGYOohCvpqX1ClWdGOAy4F");'></div>
+</div>
+<h3 class="text-sm font-bold uppercase mb-1">Tailored Wool Trousers</h3>
+<p class="text-sm text-neutral-500">$320.00</p>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-neutral-100 rounded-lg mb-4">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxury shoes accessory" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD1UGvJXSaaWIWGKeT_0twfITvSQu13RiWRvuq855FGIrk34giT5tkmQa7CDmvh5qMtvFMWCclhbWnBXDAepf7QdhqyW3fGA5-CrKLrCq33xxeTiILC2ZkipxazB7VeZ398y8d45OrRVvLxObNbisIo_Eu2z5hgX4fylbD0DRMupwx7NpJrcs1R4r9kkreisoK4xqGcDCR1l3s90JvUTpfwmST-eiU3pUx922rq8jiRQvEHjSSRG7gCyj5-RJI8WU3ucN8zUuPa9tFq");'></div>
+</div>
+<h3 class="text-sm font-bold uppercase mb-1">Calfskin Pointed Mules</h3>
+<p class="text-sm text-neutral-500">$580.00</p>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-neutral-100 rounded-lg mb-4">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Luxury leather handbag" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVKqOOTAFhl-WmG9mZ9ZDbKYtfJF4qSduhPRCnSDtEE2-0vuQrzeWXzrwOX0fKr-S8N2_49WbDdW3TR3BubENjhhrrTRtxD7mPRE6xlEoTyOyxUOuviUHppmLumPbu4BhY4-27uN7qiggUDQG6x48wrq21O8Cafis9WSrfQlPMqZfTJuA3x0uvem3PxVyG6yqBa4s5NuGCcKvGdxY0WCajHSc2kpq5P74ZdAG6sSBC4WDMZZL5O39Tqt2YqzaLWUlNi5gg_h5PJgXF");'></div>
+</div>
+<h3 class="text-sm font-bold uppercase mb-1">Structured Leather Bag</h3>
+<p class="text-sm text-neutral-500">$1,200.00</p>
+</div>
+<!-- Product 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-neutral-100 rounded-lg mb-4">
+<div class="w-full h-full bg-center bg-cover transition-transform duration-500 group-hover:scale-105" data-alt="Fashion sunglasses" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCNIazEthqysLxh6AwnM5jwt7cLSajS-YYMbiuHjWsiodzqclBrK6k803QkqZlYZaJECK3BD73ViFfwgG7cRchiJRnY8Lef7LkZFf-h6Y7-ntLZ9rOZtP4BqNSkYL0JiNBxdhSW1ptNjE6_5QmDa4k4cr2o_9TA-A2ocR1EoNQeiZCz0-aXkg47PhTVIKnJ5KxFOLoR7Cn5VhOHVviYW91eptrBFdMSLn-h6c_C5qkgxDOYdkZ91XHmW9KJFbq4WTNl36-9YkdsBux1");'></div>
+</div>
+<h3 class="text-sm font-bold uppercase mb-1">Oversized Square Shades</h3>
+<p class="text-sm text-neutral-500">$295.00</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary text-white py-16 px-12 mt-20">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div>
+<h4 class="text-lg font-bold mb-6">LUXE</h4>
+<p class="text-sm text-neutral-400 leading-relaxed max-w-xs">Elevating the everyday through curated minimalist design and exceptional quality.</p>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-widest mb-6">Support</h5>
+<ul class="space-y-4 text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-white transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Size Guide</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-widest mb-6">Company</h5>
+<ul class="space-y-4 text-sm text-neutral-400">
+<li><a class="hover:text-white transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Stores</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-xs font-bold uppercase tracking-widest mb-6">Newsletter</h5>
+<div class="flex border-b border-neutral-700 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full p-0 placeholder:text-neutral-600" placeholder="Email address" type="email"/>
+<button class="material-symbols-outlined">arrow_forward</button>
+</div>
+<div class="mt-8 flex gap-4">
+<span class="material-symbols-outlined text-neutral-400 cursor-pointer hover:text-white">public</span>
+<span class="material-symbols-outlined text-neutral-400 cursor-pointer hover:text-white">share</span>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-neutral-800 text-[10px] text-neutral-600 flex justify-between uppercase tracking-widest">
+<span>© 2024 LUXE ATELIER. ALL RIGHTS RESERVED.</span>
+<div class="flex gap-6">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</body></html>

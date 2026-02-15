@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUXE | The Essence of Style</title>
+<!-- Google Fonts: Inter for UI, Playfair Display for Hero, Poppins for Product Details -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Poppins:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#121212",
+                        "accent-gold": "#C5A059",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#191919",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"],
+                        "poppins": ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-text {
+            font-family: 'Playfair Display', serif;
+        }
+        .product-font {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-primary dark:text-white antialiased overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between border-b border-solid border-primary/5 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 md:px-20 py-4">
+<div class="flex items-center gap-12">
+<div class="flex items-center gap-2">
+<h2 class="text-primary dark:text-white text-2xl font-bold tracking-[0.2em] hero-text">LUXE</h2>
+</div>
+<nav class="hidden lg:flex items-center gap-8">
+<a class="text-primary/70 hover:text-primary dark:text-white/70 dark:hover:text-white text-xs font-medium uppercase tracking-widest transition-colors" href="#">Collections</a>
+<a class="text-primary/70 hover:text-primary dark:text-white/70 dark:hover:text-white text-xs font-medium uppercase tracking-widest transition-colors" href="#">Men</a>
+<a class="text-primary/70 hover:text-primary dark:text-white/70 dark:hover:text-white text-xs font-medium uppercase tracking-widest transition-colors" href="#">Women</a>
+<a class="text-primary/70 hover:text-primary dark:text-white/70 dark:hover:text-white text-xs font-medium uppercase tracking-widest transition-colors" href="#">Journal</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex items-center border-b border-primary/20 dark:border-white/20 pb-1">
+<span class="material-symbols-outlined text-xl opacity-60">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm placeholder:text-primary/40 dark:placeholder:text-white/40 w-32" placeholder="Search..." type="text"/>
+</div>
+<button class="flex items-center justify-center p-1">
+<span class="material-symbols-outlined text-2xl">shopping_bag</span>
+</button>
+<button class="flex items-center justify-center p-1">
+<span class="material-symbols-outlined text-2xl">person</span>
+</button>
+<button class="lg:hidden flex items-center justify-center p-1">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 mt-0">
+<!-- Hero Section -->
+<section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-105" data-alt="High-end editorial fashion model in minimalist setting" style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSaxlJFHEnxopc_5iCq8kagCgA9HPWSWQbProPmB4j642ByKzpYbVUgjGUu_paNzB13RGSzbyWad08ZbuOGWPWZEB97MecSX2uOQll9D-l9kapb4eTpC4MFuFtkx1_0LHgXc4FDmUXy71OAoonNNU3eTrSUsXZSzkWDQvVxEoACG7Tx5JINjNpK1sMQVPRmshIegRn6R0jNpo-6zuVlsshVot931_A4p7-5gL32Yc2tAEwTKarfsmw9d77G1Hvjl7lLPV7G1jJKf8S');">
+</div>
+<div class="relative z-10 text-center text-white px-4 max-w-4xl">
+<h1 class="hero-text text-5xl md:text-8xl font-normal leading-tight tracking-tight mb-8">
+                        THE ESSENCE OF STYLE
+                    </h1>
+<p class="text-sm md:text-base font-light tracking-[0.3em] uppercase mb-12 opacity-90">
+                        Redefining luxury through minimalist design
+                    </p>
+<button class="inline-block px-10 py-4 bg-white text-primary text-xs font-bold tracking-[0.2em] uppercase hover:bg-primary hover:text-white transition-all duration-300">
+                        Shop Now
+                    </button>
+</div>
+</section>
+<!-- Collections Grid -->
+<section class="px-6 md:px-20 py-24 bg-white dark:bg-background-dark">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Men -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 relative">
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+<img alt="Men's collection" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern tailoring male model in charcoal suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj3Qc7lmBgwLJCpS2D7hIZAvR7tD86hlHKN_oXZ2SoSiqLSS7UJCznAnEHUyX0y-aQMi1NYWVKev1QPG0r7WQXH9lSvuH4QOmfss15KxUPKqcoQWl8NYeNM0qxqqrRbk6yGxZqcpwZZpbHKcqbJpDuvuQ7viHleOyiQJovbuhXGs-SZH1FPXYS1TOyWuZTD6XJdljNM-IQ9-bTxUXV3B7koM4HhEYfvb16T2XaU4mhMJvPv2uvgvR14D0edkZvvywHt0NKnW1bpVZw"/>
+</div>
+<h3 class="hero-text text-2xl mb-1">Modern Tailoring</h3>
+<p class="text-xs uppercase tracking-widest text-primary/60 dark:text-white/60">Men's Collection</p>
+</div>
+<!-- Women -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 relative">
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+<img alt="Women's collection" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Woman wearing silk minimalist dress editorial photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnI_lk0exHkMHJ-nJUR42py7fmBxh8ycYE4hPDcufKiz6zTW3X6OzIandEQasqSunLd8vvuzLRnTgm6dvoYjJcE32nfVThon1OfUCwcORxuU9l_Z0Hez4H0v29Y5nxR4cakZKT31bSrBKGy8E2DznBYzQ-OuPakfiQUjKCFyQYNrYz7HEvFosk9tEcF5h3J52lA8lFpfynKZOOZPANiHoEDTHTd3sqoOu804mQnM6kdi1-pKO9VQAvX8GP3v3uNWpKYtZP0nIrbCWj"/>
+</div>
+<h3 class="hero-text text-2xl mb-1">The Silk Collection</h3>
+<p class="text-xs uppercase tracking-widest text-primary/60 dark:text-white/60">Women's Collection</p>
+</div>
+<!-- Accessories -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-6 relative">
+<div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
+<img alt="Accessories collection" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of luxury minimalist leather accessories" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkn_-9hxCeUKE17x9o1aCsuwZ0fsq6u_L4akvZXp5eYyr8qBThgYaopa6Yi_tDGHQecc2fKkk4bfsL0CvYVFBxfzsGuh9g60fNQa8KcXqxNXbDJmTzpgVsxKqGZWeMJszldBnxHEFnSXYHRnlK0P-dYK9SeCcqGevQ7nOKMOHOnbW3Iu35cG23OS_u-HW1FTz2imalaFHAHY2Ozl0xNw1diOTE5BOqACQlKRReQyhP27fQfMpNXnaD02lX-iSWBl_mdB3c8dvWsvpc"/>
+</div>
+<h3 class="hero-text text-2xl mb-1">Essential Details</h3>
+<p class="text-xs uppercase tracking-widest text-primary/60 dark:text-white/60">Accessories</p>
+</div>
+</div>
+</section>
+<!-- Trending Products Grid -->
+<section class="px-6 md:px-20 py-24 bg-background-light dark:bg-background-dark/50">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-xs uppercase tracking-[0.4em] text-accent-gold font-semibold mb-4 block">Selected Pieces</span>
+<h2 class="hero-text text-4xl md:text-5xl">Trending Products</h2>
+</div>
+<a class="hidden md:block text-xs font-bold uppercase tracking-widest border-b border-primary dark:border-white pb-1 hover:opacity-60 transition-opacity" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+<!-- Product 1 -->
+<div class="group">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-white dark:bg-background-dark shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+<img alt="Cashmere Coat" class="w-full h-full object-cover" data-alt="Minimalist long cashmere overcoat in camel color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBPZvMwfBfKiAzrxH84gFdt12q3Jrd6qFcU9Izl80spxi3nB5XLTB2GgO-IaM0hSlMt90Ggwh_doKJNg7voEtFbbHoIideLmRa17zQeNqbvGQdFhv6l-0bkTXBoc3q97Ij6PflmNttXqsDYOHUqvciHyaxyxy2MdrL2CNnqRKU2gq6ptTlX0XexgcXkFazs30SCdtmntVgBvynIFn4dahN7O-znkhNpFBVTRNOEpknQ0DhPngQwyZFsjlL_4ihHWWLDV4yzxojgrpF"/>
+<button class="absolute bottom-0 left-0 right-0 py-4 bg-primary text-white text-[10px] uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                Quick Add
+                            </button>
+</div>
+<div class="product-font">
+<h4 class="text-sm font-medium mb-1 tracking-tight">Classic Cashmere Overcoat</h4>
+<p class="text-accent-gold text-sm font-semibold">$1,250</p>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-white dark:bg-background-dark shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+<img alt="Silk Scarf" class="w-full h-full object-cover" data-alt="Luxury white silk scarf detail shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9s5WHCQiJuK5lkOY3SI-Fv3qIPE_f9Zg-OQX82OChUGsWwIIDThcV1UjYSFWna63W3pw2PfODPghikr47pmYwQmGEwR3Nz5vJFUTcxnTz0-d8QMHCq6xl9EQM9FV0w7BmT7aaaLUJAyKOd58tPt2szh5JPuje8JwVub9MaVJfCZTWWyCodMlzOMr1Yeo1XOB4YXEZFLdzauufH1fHn4duP4S94lgGFUDVi7DTIy4B0bftIOEbwDAt-Fhs8iT5jwX2rgC07IfHa0Lh"/>
+<button class="absolute bottom-0 left-0 right-0 py-4 bg-primary text-white text-[10px] uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                Quick Add
+                            </button>
+</div>
+<div class="product-font">
+<h4 class="text-sm font-medium mb-1 tracking-tight">Raw Edge Silk Scarf</h4>
+<p class="text-accent-gold text-sm font-semibold">$320</p>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-white dark:bg-background-dark shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+<img alt="Leather Boots" class="w-full h-full object-cover" data-alt="Sleek black minimalist leather boots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhgSJSVeD-LXdjtwOhENNphbZ614FMiIj0PzNRlL_tJD81_K36ihbACMNGTo5c7mAw04ns63WKG_uwJDONxxEU2wGmVzEbmJSGwJeuSmjLZtRb3Gel8GDdyKfX0FcezhS5A85JdnJ5C1FWYGJzdO8jr8KNQa5gLYrcWuZSstl_yu9-ZrAUa7Lz5V3B9uFdNHlrP-fvyvyZaYFK8QZmofC-GDZIL3prCQhBpnqgTxBDx43Dw3fylE4_zjyqEYHszbQfftwu4LFPVMzf"/>
+<button class="absolute bottom-0 left-0 right-0 py-4 bg-primary text-white text-[10px] uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                Quick Add
+                            </button>
+</div>
+<div class="product-font">
+<h4 class="text-sm font-medium mb-1 tracking-tight">Sculpted Heel Ankle Boot</h4>
+<p class="text-accent-gold text-sm font-semibold">$890</p>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group">
+<div class="relative aspect-[4/5] overflow-hidden mb-6 bg-white dark:bg-background-dark shadow-sm group-hover:shadow-xl transition-shadow duration-500">
+<img alt="Structured Tote" class="w-full h-full object-cover" data-alt="Structured tan leather luxury tote bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGKkvhst0R-SWy97mkc6RwiFC_-9X-WPxFaaYEwpYhmGYgjOyHioGLaXwWsf4ZXMOjdKxRLIQ3rnoWbEkXYXuMPk4r3HzhEVW-OTs7yjL8Cagihzc3H7-AOiHzNt28UIEjVNxlurjgd54F9gDIp3-PX2F3XCmr_vxsWrfwiu7hyc_jjkjPfsFRpfgfunNmWg4smD_MBEOGhFgx8r9XGhbAXpbHvLzDYtVQ_wHls8LVUgOdj2nGBw35VDY8R76_kAyRc3knDS3vCEVk"/>
+<button class="absolute bottom-0 left-0 right-0 py-4 bg-primary text-white text-[10px] uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                Quick Add
+                            </button>
+</div>
+<div class="product-font">
+<h4 class="text-sm font-medium mb-1 tracking-tight">Structured Essential Tote</h4>
+<p class="text-accent-gold text-sm font-semibold">$1,400</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Philosophy -->
+<section class="py-32 bg-primary text-white text-center px-6">
+<div class="max-w-3xl mx-auto">
+<span class="text-xs tracking-[0.5em] opacity-50 uppercase mb-8 block">Our Ethos</span>
+<h2 class="hero-text text-3xl md:text-5xl leading-relaxed italic mb-12">
+                        "Elegance is not standing out, but being remembered."
+                    </h2>
+<p class="text-sm font-light leading-loose opacity-70 tracking-wide max-w-xl mx-auto">
+                        We believe in the power of restraint. Our pieces are designed for the modern individual who values craftsmanship over trends and quality over quantity.
+                    </p>
+</div>
+</section>
+</main>
+<!-- Magazine Style Footer -->
+<footer class="bg-white dark:bg-background-dark border-t border-primary/5 pt-24 pb-12 px-6 md:px-20">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+<div class="col-span-1 lg:col-span-1">
+<h2 class="hero-text text-3xl tracking-[0.2em] mb-8">LUXE</h2>
+<p class="text-xs leading-relaxed text-primary/60 dark:text-white/60 mb-8 max-w-[240px]">
+                        The pinnacle of minimalist luxury fashion. Founded on the principles of timeless design and exceptional materials.
+                    </p>
+<div class="flex gap-4">
+<a class="w-8 h-8 flex items-center justify-center border border-primary/10 rounded-full hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-sm">public</span></a>
+<a class="w-8 h-8 flex items-center justify-center border border-primary/10 rounded-full hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-sm">share</span></a>
+<a class="w-8 h-8 flex items-center justify-center border border-primary/10 rounded-full hover:bg-primary hover:text-white transition-all" href="#"><span class="material-symbols-outlined text-sm">camera</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-8">Explore</h4>
+<ul class="space-y-4 text-xs font-medium text-primary/50 dark:text-white/50">
+<li><a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Our Story</a></li>
+<li><a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Retail Locations</a></li>
+<li><a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-8">Customer Care</h4>
+<ul class="space-y-4 text-xs font-medium text-primary/50 dark:text-white/50">
+<li><a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Shipping &amp; Returns</a></li>
+<li><a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Size Guide</a></li>
+<li><a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary dark:hover:text-white transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-widest mb-8">Newsletter</h4>
+<p class="text-xs text-primary/60 dark:text-white/60 mb-6">Join the LUXE circle for exclusive releases.</p>
+<form class="flex border-b border-primary/20 dark:border-white/20 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-xs flex-grow px-0" placeholder="Your email address" type="email"/>
+<button class="text-xs font-bold uppercase tracking-widest ml-4" type="submit">Subscribe</button>
+</form>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-primary/5 text-[10px] uppercase tracking-[0.2em] text-primary/40 dark:text-white/40">
+<p>© 2024 LUXE ATELIER. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8 mt-6 md:mt-0">
+<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+</div>
+</body></html>
