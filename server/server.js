@@ -4,7 +4,14 @@ const sql = require("mssql");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+// CORS Configuration
+app.use(cors({
+    origin: [
+        "http://localhost:5173", // Local frontend
+        "https://ashy-sea-090fda60f.4.azurestaticapps.net"
+    ],
+    credentials: true
+}));
 app.use(express.json());
 
 /* SQL CONNECTION */
