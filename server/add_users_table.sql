@@ -1,0 +1,7 @@
+IF OBJECT_ID('Users', 'U') IS NULL
+CREATE TABLE Users (
+    id NVARCHAR(128) PRIMARY KEY,
+    email NVARCHAR(255),
+    name NVARCHAR(255),
+    created_at DATETIME2 DEFAULT GETDATE()
+);

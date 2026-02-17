@@ -27,6 +27,14 @@ VALUES
 ('Silk Blend Knit Polo', 420, 'Knitwear', 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcaTO3fac833cGYSUgbsxW0SnS2Md7WCXegif_MFm0lyUinrxwBcuBSosi4DyLSHp4YwOyjCukjzFAiMQ0Rktk6JEH1rX-M5AiaEqmuMBBdNBWkNqSJoFsK1mABfy7UOS5TBqR3sSbcKSmRK4_S9MOoGL6VP-crX8OrIV0kNHgOL2jeN6XamTYN76j_eJPbA3Wsq5D5rEVgUbx2LRghAHQQK3PewaCJm9SAqN6YT3EGzMQ6FGmbZVDEr9NwDYRmakkR10DY3VS4fQV', 'Cream knit polo shirt made from a breathable silk blend. Perfect for transitional weather.', '60% Silk, 40% Cotton. Hand wash flat.'),
 ('Signature Silk Wrap Blouse', 450, 'Tops', 'https://lh3.googleusercontent.com/aida-public/AB6AXuAYRp3CV33FYhoP87M38YC76pPQC0DOSvONA8F7i-vZArGNtJZC26xrm7E2npg91KJU8cis2Uec5hi_IyGPyWvQej-bps41BTlWBLNXgYVIHJWd4RSHiTCO-q_Ivg_1yPz99Tt3xRsvP5AvOHkk9gDsgTke41eRfHNtqF_ZnBl3kRYMCmOlpn-3RUcmluWXsXrD51WHuvwd3BXUvcu0vEXh3Eb6XswYR-aulZg10zAcl6pwGw9_9hcTjM1Ag4uGGdxaEswxuE-A7h27', 'Expertly crafted from 100% heavy-weight mulberry silk, this wrap blouse features an elegant draped neckline and elongated cuffs.', '100% Silk. Dry clean only. Iron on low heat.');
 
+-- Create Users Table
+CREATE TABLE Users (
+    id NVARCHAR(128) PRIMARY KEY,
+    email NVARCHAR(255),
+    name NVARCHAR(255),
+    created_at DATETIME2 DEFAULT GETDATE()
+);
+
 -- Create Orders Table
 CREATE TABLE Orders (
     id INT IDENTITY(1,1) PRIMARY KEY,

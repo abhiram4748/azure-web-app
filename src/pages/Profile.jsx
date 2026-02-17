@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { createUserProfile, getUserProfile, getUserOrders, updateUserProfile } from '../services/firestore';
+import { fetchUserOrders, syncUser } from '../services/api';
 
 export default function Profile() {
     const { user, login, signup, logout, googleSignIn } = useAuth();
@@ -8,7 +8,6 @@ export default function Profile() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [userProfile, setUserProfile] = useState(null);
     const [orders, setOrders] = useState([]);
     const [loadingData, setLoadingData] = useState(false);
 
@@ -24,24 +23,18 @@ export default function Profile() {
         const fetchUserData = async () => {
             if (user) {
                 setLoadingData(true);
-                // Ensure profile exists
-                await createUserProfile(user);
-                // Fetch profile data
-                const profile = await getUserProfile(user.uid);
-                setUserProfile(profile);
-                if (profile) {
-                    setEditForm({
-                        name: profile.name || '',
-                        phone: profile.phone || '',
-                        address: profile.address || ''
-                    });
-                }
+                // Sync user to SQL DB
+                await syncUser(user);
+
                 // Fetch orders
-                const userOrders = await getUserOrders(user.uid);
-                setOrders(userOrders);
+                try {
+                    const userOrders = await fetchUserOrders(user.uid);
+                    setOrders(userOrders);
+                } catch (e) {
+                    console.error("Error fetching orders", e);
+                }
                 setLoadingData(false);
             } else {
-                setUserProfile(null);
                 setOrders([]);
             }
         };
@@ -56,8 +49,7 @@ export default function Profile() {
                 await login(email, password);
             } else {
                 const userCredential = await signup(email, password);
-                // Create profile immediately on signup
-                await createUserProfile(userCredential.user);
+                await syncUser(userCredential);
             }
             setEmail('');
             setPassword('');
@@ -77,22 +69,16 @@ export default function Profile() {
     const handleGoogleSignIn = async () => {
         try {
             const result = await googleSignIn();
-            await createUserProfile(result.user);
+            await syncUser(result.user);
         } catch (err) {
             setError(err.message);
         }
     };
 
     const handleSaveProfile = async () => {
-        try {
-            await updateUserProfile(user.uid, editForm);
-            setUserProfile({ ...userProfile, ...editForm });
-            setIsEditing(false);
-            alert("Profile updated successfully!");
-        } catch (err) {
-            console.error("Error updating profile:", err);
-            alert("Failed to update profile.");
-        }
+        // Mock update
+        setIsEditing(false);
+        alert("Profile updated locally (No backend support yet)");
     };
 
     if (loadingData) {
@@ -113,7 +99,7 @@ export default function Profile() {
                                 <span className="opacity-50">👤</span>
                             </div>
                             <div className="text-center md:text-left">
-                                <h1 className="text-2xl font-serif text-primary dark:text-white mb-2">Welcome, {userProfile?.name || user.email?.split('@')[0]}</h1>
+                                <h1 className="text-2xl font-serif text-primary dark:text-white mb-2">Welcome, {user.displayName || user.email?.split('@')[0]}</h1>
                                 <p className="text-neutral-500 font-mono text-xs">{user.email}</p>
                             </div>
                             <div className="md:ml-auto">
@@ -180,28 +166,27 @@ export default function Profile() {
                                         <>
                                             <div>
                                                 <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1">Name</label>
-                                                <p className="text-neutral-600 dark:text-neutral-300">{userProfile?.name || 'Not set'}</p>
+                                                <p className="text-neutral-600 dark:text-neutral-300">{user.displayName || 'Not set'}</p>
                                             </div>
                                             <div>
                                                 <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1">Phone</label>
-                                                <p className="text-neutral-600 dark:text-neutral-300">{userProfile?.phone || 'Not set'}</p>
+                                                <p className="text-neutral-600 dark:text-neutral-300">Not set</p>
                                             </div>
                                             <div>
                                                 <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1">Address</label>
-                                                <p className="text-neutral-600 dark:text-neutral-300">{userProfile?.address || 'Not set'}</p>
+                                                <p className="text-neutral-600 dark:text-neutral-300">Not set</p>
                                             </div>
                                         </>
                                     )}
 
                                     <div className="pt-4 border-t border-neutral-100 dark:border-neutral-800">
                                         <label className="block text-xs text-neutral-400 uppercase tracking-wider mb-1">Member Since</label>
-                                        <p className="text-neutral-600 dark:text-neutral-300">{userProfile?.createdAt?.toDate ? userProfile.createdAt.toDate().toLocaleDateString() : 'Just now'}</p>
+                                        <p className="text-neutral-600 dark:text-neutral-300">{user.metadata?.creationTime ? new Date(user.metadata.creationTime).toLocaleDateString() : 'Just now'}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Order History */}
                         {/* Order History */}
                         <div className="md:col-span-2">
                             <div className="flex justify-between items-center mb-6">
@@ -220,12 +205,12 @@ export default function Profile() {
                                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                                                     <div>
                                                         <p className="text-xs text-neutral-400 uppercase tracking-widest mb-1">Order ID</p>
-                                                        <p className="text-xs font-mono font-bold text-neutral-600 dark:text-neutral-300">#{order.id.slice(-6).toUpperCase()}</p>
+                                                        <p className="text-xs font-mono font-bold text-neutral-600 dark:text-neutral-300">#{order.id.toString()}</p>
                                                     </div>
                                                     <div>
                                                         <p className="text-xs text-neutral-400 uppercase tracking-widest mb-1">Date</p>
                                                         <p className="text-sm font-medium text-neutral-700 dark:text-neutral-200">
-                                                            {order.createdAt?.toDate ? order.createdAt.toDate().toLocaleDateString() : 'Pending'}
+                                                            {new Date().toLocaleDateString()}
                                                         </p>
                                                     </div>
                                                     <div>
@@ -242,26 +227,7 @@ export default function Profile() {
                                             </div>
 
                                             <div className="space-y-4">
-                                                {order.items?.map((item, index) => (
-                                                    <div key={index} className="flex items-center gap-4 group">
-                                                        <div className="size-16 bg-neutral-100 dark:bg-neutral-800 rounded overflow-hidden shrink-0">
-                                                            <img
-                                                                src={item.image || item.imageUrl}
-                                                                alt={item.title}
-                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                                            />
-                                                        </div>
-                                                        <div className="flex-1 min-w-0">
-                                                            <h4 className="text-sm font-bold text-primary dark:text-white truncate mb-1">{item.title || item.name}</h4>
-                                                            <p className="text-xs text-neutral-500">
-                                                                Qty: {item.quantity}
-                                                                {item.selectedSize && <span className="mx-2">•</span>}
-                                                                {item.selectedSize && `Size: ${item.selectedSize}`}
-                                                            </p>
-                                                        </div>
-                                                        <p className="text-sm font-medium text-primary dark:text-white">${item.price * item.quantity}</p>
-                                                    </div>
-                                                ))}
+                                                <p className="text-xs text-neutral-500">Items logic can be added here if backend supports returning items with order</p>
                                             </div>
                                         </div>
                                     ))}
@@ -338,7 +304,8 @@ export default function Profile() {
                     onClick={handleGoogleSignIn}
                     className="w-full py-4 border border-neutral-200 dark:border-neutral-700 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 mb-6"
                 >
-                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" className="w-5 h-5" />
+                    {/* Accessing Google icon from text */}
+                    <span className="text-lg">G</span>
                     Google
                 </button>
 

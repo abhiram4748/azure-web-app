@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { fetchProductById } from '../services/firestore';
+import { fetchProductById } from '../services/api';
 
 export default function ProductDetail() {
     const { id } = useParams();
@@ -15,15 +15,20 @@ export default function ProductDetail() {
     useEffect(() => {
         const loadProduct = async () => {
             setLoading(true);
-            const data = await fetchProductById(id);
-            if (data) {
-                setProduct(data);
-                // Set default size if available, or stay as M
-                if (data.sizes && data.sizes.length > 0) {
-                    setSelectedSize(data.sizes[0]);
+            try {
+                const data = await fetchProductById(id);
+                if (data) {
+                    setProduct(data);
+                    // Set default size if available, or stay as M
+                    if (data.sizes && data.sizes.length > 0) {
+                        setSelectedSize(data.sizes[0]);
+                    }
                 }
+            } catch (error) {
+                console.error("Failed to load product", error);
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
         };
         loadProduct();
     }, [id]);

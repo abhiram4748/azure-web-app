@@ -1,13 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../firebase';
-import {
-    onAuthStateChanged,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    signOut,
-    signInWithPopup,
-    GoogleAuthProvider
-} from 'firebase/auth';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
@@ -18,28 +9,48 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser);
-            setLoading(false);
-        });
-        return unsubscribe;
+        // Check for persisted user in localStorage
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+        setLoading(false);
     }, []);
 
-    const login = (email, password) => {
-        return signInWithEmailAndPassword(auth, email, password);
+    const login = async (email, password) => {
+        // Mock Login
+        const mockUser = {
+            uid: 'test-user-' + Math.random().toString(36).substr(2, 9),
+            email: email,
+            displayName: email.split('@')[0],
+            photoURL: null
+        };
+        setUser(mockUser);
+        localStorage.setItem('user', JSON.stringify(mockUser));
+        return mockUser;
     };
 
-    const signup = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password);
+    const signup = async (email, password) => {
+        // Mock Signup - same as login for now
+        return login(email, password);
     };
 
-    const logout = () => {
-        return signOut(auth);
+    const logout = async () => {
+        setUser(null);
+        localStorage.removeItem('user');
     };
 
-    const googleSignIn = () => {
-        const provider = new GoogleAuthProvider();
-        return signInWithPopup(auth, provider);
+    const googleSignIn = async () => {
+        // Mock Google Sign In
+        const mockUser = {
+            uid: 'google-user-' + Math.random().toString(36).substr(2, 9),
+            email: 'user@gmail.com',
+            displayName: 'Google User',
+            photoURL: null
+        };
+        setUser(mockUser);
+        localStorage.setItem('user', JSON.stringify(mockUser));
+        return { user: mockUser };
     };
 
     const value = {

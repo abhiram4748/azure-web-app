@@ -1,7 +1,5 @@
-import { createContext, useState, useContext, useEffect, useRef } from 'react';
-import { db } from '../firebase';
+import { createContext, useState, useContext, useEffect } from 'react';
 import { useAuth } from './AuthContext';
-import { doc, getDoc, setDoc, onSnapshot } from 'firebase/firestore';
 
 const CartContext = createContext();
 
@@ -15,64 +13,10 @@ export const CartProvider = ({ children }) => {
     });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const cartStateRef = import.meta.env ? useRef(cart) : { current: cart }; // Fallback for safety, though useRef is standard
-    // Ensure useRef is imported
-
-    // Keep cart ref in sync
-    useEffect(() => {
-        cartStateRef.current = cart;
-    }, [cart]);
-
-    // Monitor Auth State
-    useEffect(() => {
-        let unsubscribeSnapshot;
-
-        if (user) {
-            // If user logs in, sync with Firestore
-            const cartRef = doc(db, 'carts', user.uid);
-
-            // Listen to real-time updates from Firestore
-            unsubscribeSnapshot = onSnapshot(cartRef, (docSnap) => {
-                if (docSnap.exists()) {
-                    // Merge logic could go here, for now replacing with server state or keeping local if server is empty?
-                    // Sticking to existing logic: Server wins if exists.
-                    setCart(docSnap.data().items || []);
-                } else {
-                    // If no cart exists in Firestore, create one with current local cart
-                    // Use ref to get current cart value
-                    const currentCart = cartStateRef.current;
-                    if (currentCart.length > 0) {
-                        setDoc(cartRef, { items: currentCart }, { merge: true });
-                    }
-                }
-            });
-        } else {
-            // User logged out, revert to local storage
-            const savedCart = localStorage.getItem('cart');
-            setCart(savedCart ? JSON.parse(savedCart) : []);
-        }
-
-        return () => {
-            if (unsubscribeSnapshot) unsubscribeSnapshot();
-        };
-    }, [user]); // Run when user changes
-
-    // Sync to Local Storage (always backup) and Firestore (if logged in)
+    // Sync to Local Storage
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
-
-        if (user) {
-            const saveToFirestore = async () => {
-                try {
-                    const cartRef = doc(db, 'carts', user.uid);
-                    await setDoc(cartRef, { items: cart }, { merge: true });
-                } catch (error) {
-                    console.error("Error syncing cart to Firestore:", error);
-                }
-            };
-            saveToFirestore();
-        }
-    }, [cart, user]);
+    }, [cart]);
 
     const addToCart = (product, size, quantity = 1) => {
         setCart(prevCart => {

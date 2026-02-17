@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { fetchProducts } from '../services/firestore';
+import { fetchProducts } from '../services/api';
 
 export default function Shop() {
     const [products, setProducts] = useState([]);
@@ -10,9 +10,14 @@ export default function Shop() {
     useEffect(() => {
         const loadProducts = async () => {
             setLoading(true);
-            const data = await fetchProducts();
-            setProducts(data);
-            setLoading(false);
+            try {
+                const data = await fetchProducts();
+                setProducts(data);
+            } catch (error) {
+                console.error("Failed to load products", error);
+            } finally {
+                setLoading(false);
+            }
         };
         loadProducts();
     }, []);

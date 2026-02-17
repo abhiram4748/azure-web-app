@@ -12,22 +12,31 @@ app.use(cors({
     ],
     credentials: true
 }));
-app.use(express.json());
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "https://ashy-sea-090fda60f.1.azurestaticapps.net"
+    ],
+    credentials: true
+}));
 
 /* SQL CONNECTION */
-const dbConfig = {
+const sqlConfig = {
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     server: process.env.DB_SERVER,
     database: process.env.DB_NAME,
+    port: 1433,
     options: {
         encrypt: true,
         trustServerCertificate: false
-    }
+    },
+    connectionTimeout: 30000,
+    requestTimeout: 30000
 };
 
 // Connect to Database
-sql.connect(dbConfig)
+sql.connect(sqlConfig)
     .then(() => console.log("Azure SQL Connected ✅"))
     .catch(err => console.error("Database Connection Error:", err));
 
@@ -57,6 +66,21 @@ app.get("/products", async (req, res) => {
         }));
 
         res.json(products);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Database error");
+    }
+});
+
+/* GET PRODUCT BY ID */
+app.get("/products/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const result = await sql.query`SELECT * FROM Products WHERE id = ${id}`;
+        if (result.recordset.length === 0) {
+            return res.status(404).send("Product not found");
+        }
+        res.json(result.recordset[0]);
     } catch (err) {
         console.log(err);
         res.status(500).send("Database error");
@@ -127,5 +151,77 @@ app.post("/orders", async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+/* GET USER ORDERS */
+app.get("/orders", async (req, res) => {
+    const userId = req.query.user_id;
+    if (!userId) return res.status(400).send("User ID required");
+
+    try {
+        const result = await sql.query`
+            SELECT o.id, o.total_amount, o.status, o.created_at,
+                   oi.productId, oi.quantity, oi.price, oi.size,
+                   p.name, p.image_url
+            FROM Orders o
+            JOIN OrderItems oi ON o.id = oi.order_id
+            JOIN Products p ON oi.productId = p.id
+            WHERE o.userId = ${userId}
+            ORDER BY o.created_at DESC
+        `;
+
+        // Group items by order
+        const ordersMap = new Map();
+        result.recordset.forEach(row => {
+            if (!ordersMap.has(row.id)) {
+                ordersMap.set(row.id, {
+                    id: row.id.toString(),
+                    totalAmount: row.total_amount,
+                    status: row.status,
+                    createdAt: row.created_at,
+                    items: []
+                });
+            }
+            ordersMap.get(row.id).items.push({
+                productId: row.productId,
+                quantity: row.quantity,
+                price: row.price,
+                size: row.size,
+                title: row.name,
+                image: row.image_url
+            });
+        });
+
+        res.json(Array.from(ordersMap.values()));
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Failed to fetch orders");
+    }
+});
+
+/* SYNC USER */
+app.post("/users", async (req, res) => {
+    const { id, email, name } = req.body;
+    if (!id || !email) return res.status(400).send("ID and Email required");
+
+    try {
+        // Check if user exists
+        const check = await sql.query`SELECT id FROM Users WHERE id = ${id}`;
+        if (check.recordset.length === 0) {
+            await sql.query`
+                INSERT INTO Users (id, email, name)
+                VALUES (${id}, ${email}, ${name})
+            `;
+        } else {
+            await sql.query`
+                UPDATE Users SET email = ${email}, name = ${name}
+                WHERE id = ${id}
+            `;
+        }
+        res.json({ message: "User synced" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Failed to sync user");
+    }
+});
+
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log("Server running on port", PORT));

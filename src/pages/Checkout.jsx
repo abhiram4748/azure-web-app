@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
-import { createOrder, getUserProfile } from '../services/firestore';
+import { createOrder } from '../services/api';
 import { useAuth } from '../context/AuthContext';
 
 export default function Checkout() {

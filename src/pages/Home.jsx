@@ -103,56 +103,56 @@ export default function Home() {
                         <Link className="hidden md:block text-xs font-bold uppercase tracking-widest border-b border-primary dark:border-white pb-1 hover:opacity-60 transition-opacity" to="/shop">View All</Link>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                        {/* Product 1 */}
+                        {/* Product 1 - Classic Leather Tote */}
                         <Link to="/product/1" className="group">
                             <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-white dark:bg-background-dark shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                                <img alt="Cashmere Coat" className="w-full h-full object-cover" data-alt="Minimalist long cashmere overcoat in camel color" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBPZvMwfBfKiAzrxH84gFdt12q3Jrd6qFcU9Izl80spxi3nB5XLTB2GgO-IaM0hSlMt90Ggwh_doKJNg7voEtFbbHoIideLmRa17zQeNqbvGQdFhv6l-0bkTXBoc3q97Ij6PflmNttXqsDYOHUqvciHyaxyxy2MdrL2CNnqRKU2gq6ptTlX0XexgcXkFazs30SCdtmntVgBvynIFn4dahN7O-znkhNpFBVTRNOEpknQ0DhPngQwyZFsjlL_4ihHWWLDV4yzxojgrpF" />
+                                <img alt="Classic Leather Tote" className="w-full h-full object-cover" data-alt="Classic Leather Tote" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVKqOOTAFhl-WmG9mZ9ZDbKYtfJF4qSduhPRCnSDtEE2-0vuQrzeWXzrwOX0fKr-S8N2_49WbDdW3TR3BubENjhhrrTRtxD7mPRE6xlEoTyOyxUOuviUHppmLumPbu4BhY4-27uN7qiggUDQG6x48wrq21O8Cafis9WSrfQlPMqZfTJuA3x0uvem3PxVyG6yqBa4s5NuGCcKvGdxY0WCajHSc2kpq5P74ZdAG6sSBC4WDMZZL5O39Tqt2YqzaLWUlNi5gg_h5PJgXF" />
                                 <button className="absolute bottom-0 left-0 right-0 py-4 bg-primary text-white text-[10px] uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                                     Quick Add
                                 </button>
                             </div>
                             <div className="font-poppins">
-                                <h4 className="text-sm font-medium mb-1 tracking-tight">Classic Cashmere Overcoat</h4>
-                                <p className="text-accent-gold text-sm font-semibold">$1,250</p>
+                                <h4 className="text-sm font-medium mb-1 tracking-tight">Classic Leather Tote</h4>
+                                <p className="text-accent-gold text-sm font-semibold">$195.00</p>
                             </div>
                         </Link>
-                        {/* Product 2 */}
+                        {/* Product 2 - Wool Blend Coat */}
                         <Link to="/product/2" className="group">
                             <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-white dark:bg-background-dark shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                                <img alt="Silk Scarf" className="w-full h-full object-cover" data-alt="Luxury white silk scarf detail shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9s5WHCQiJuK5lkOY3SI-Fv3qIPE_f9Zg-OQX82OChUGsWwIIDThcV1UjYSFWna63W3pw2PfODPghikr47pmYwQmGEwR3Nz5vJFUTcxnTz0-d8QMHCq6xl9EQM9FV0w7BmT7aaaLUJAyKOd58tPt2szh5JPuje8JwVub9MaVJfCZTWWyCodMlzOMr1Yeo1XOB4YXEZFLdzauufH1fHn4duP4S94lgGFUDVi7DTIy4B0bftIOEbwDAt-Fhs8iT5jwX2rgC07IfHa0Lh" />
+                                <img alt="Wool Blend Coat" className="w-full h-full object-cover" data-alt="Sophisticated wool blend coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiFmdIR-wt1obM5rEmZpGZxJVVIhbsOk120ESw1277SfCrSxWCEx7YCcHcXN3-Y3xem0piME3kRSqGw8UCLA3h2JLZVEzr96d7ZF0ie6x9m_xvv0mnVpcRRk9UY52-iTrhCBsu9zkUucU_OHhHU7hBdz-nTkK8aq3C0C-dv2hD_l2PtANLCOM82hWqeNuQzQqfpDAFoIZQJXTcPvgKydJRsSP04uHAQZ8m8fDSuwPpRgnavApKWBhj5HuGYOohCvpqX1ClWdGOAy4F" />
                                 <button className="absolute bottom-0 left-0 right-0 py-4 bg-primary text-white text-[10px] uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                                     Quick Add
                                 </button>
                             </div>
                             <div className="font-poppins">
-                                <h4 className="text-sm font-medium mb-1 tracking-tight">Raw Edge Silk Scarf</h4>
-                                <p className="text-accent-gold text-sm font-semibold">$320</p>
+                                <h4 className="text-sm font-medium mb-1 tracking-tight">Wool Blend Coat</h4>
+                                <p className="text-accent-gold text-sm font-semibold">$350.00</p>
                             </div>
                         </Link>
-                        {/* Product 3 */}
+                        {/* Product 3 - Silk Scarf */}
                         <Link to="/product/3" className="group">
                             <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-white dark:bg-background-dark shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                                <img alt="Leather Boots" className="w-full h-full object-cover" data-alt="Sleek black minimalist leather boots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhgSJSVeD-LXdjtwOhENNphbZ614FMiIj0PzNRlL_tJD81_K36ihbACMNGTo5c7mAw04ns63WKG_uwJDONxxEU2wGmVzEbmJSGwJeuSmjLZtRb3Gel8GDdyKfX0FcezhS5A85JdnJ5C1FWYGJzdO8jr8KNQa5gLYrcWuZSstl_yu9-ZrAUa7Lz5V3B9uFdNHlrP-fvyvyZaYFK8QZmofC-GDZIL3prCQhBpnqgTxBDx43Dw3fylE4_zjyqEYHszbQfftwu4LFPVMzf" />
+                                <img alt="Silk Scarf" className="w-full h-full object-cover" data-alt="Elegant silk scarf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNIazEthqysLxh6AwnM5jwt7cLSajS-YYMbiuHjWsiodzqclBrK6k803QkqZlYZaJECK3BD73ViFfwgG7cRchiJRnY8Lef7LkZFf-h6Y7-ntLZ9rOZtP4BqNSkYL0JiNBxdhSW1ptNjE6_5QmDa4k4cr2o_9TA-A2ocR1EoNQeiZCz0-aXkg47PhTVIKnJ5KxFOLoR7Cn5VhOHVviYW91eptrBFdMSLn-h6c_C5qkgxDOYdkZ91XHmW9KJFbq4WTNl36-9YkdsBux1" />
                                 <button className="absolute bottom-0 left-0 right-0 py-4 bg-primary text-white text-[10px] uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                                     Quick Add
                                 </button>
                             </div>
                             <div className="font-poppins">
-                                <h4 className="text-sm font-medium mb-1 tracking-tight">Sculpted Heel Ankle Boot</h4>
-                                <p className="text-accent-gold text-sm font-semibold">$890</p>
+                                <h4 className="text-sm font-medium mb-1 tracking-tight">Silk Scarf</h4>
+                                <p className="text-accent-gold text-sm font-semibold">$85.00</p>
                             </div>
                         </Link>
-                        {/* Product 4 */}
+                        {/* Product 4 - Leather Ankle Boots */}
                         <Link to="/product/4" className="group">
                             <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-white dark:bg-background-dark shadow-sm group-hover:shadow-xl transition-shadow duration-500">
-                                <img alt="Structured Tote" className="w-full h-full object-cover" data-alt="Structured tan leather luxury tote bag" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGKkvhst0R-SWy97mkc6RwiFC_-9X-WPxFaaYEwpYhmGYgjOyHioGLaXwWsf4ZXMOjdKxRLIQ3rnoWbEkXYXuMPk4r3HzhEVW-OTs7yjL8Cagihzc3H7-AOiHzNt28UIEjVNxlurjgd54F9gDIp3-PX2F3XCmr_vxsWrfwiu7hyc_jjkjPfsFRpfgfunNmWg4smD_MBEOGhFgx8r9XGhbAXpbHvLzDYtVQ_wHls8LVUgOdj2nGBw35VDY8R76_kAyRc3knDS3vCEVk" />
+                                <img alt="Leather Ankle Boots" className="w-full h-full object-cover" data-alt="Chic leather boots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1UGvJXSaaWIWGKeT_0twfITvSQu13RiWRvuq855FGIrk34giT5tkmQa7CDmvh5qMtvFMWCclhbWnBXDAepf7QdhqyW3fGA5-CrKLrCq33xxeTiILC2ZkipxazB7VeZ398y8d45OrRVvLxObNbisIo_Eu2z5hgX4fylbD0DRMupwx7NpJrcs1R4r9kkreisoK4xqGcDCR1l3s90JvUTpfwmST-eiU3pUx922rq8jiRQvEHjSSRG7gCyj5-RJI8WU3ucN8zUuPa9tFq" />
                                 <button className="absolute bottom-0 left-0 right-0 py-4 bg-primary text-white text-[10px] uppercase tracking-widest translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                                     Quick Add
                                 </button>
                             </div>
                             <div className="font-poppins">
-                                <h4 className="text-sm font-medium mb-1 tracking-tight">Structured Essential Tote</h4>
-                                <p className="text-accent-gold text-sm font-semibold">$1,400</p>
+                                <h4 className="text-sm font-medium mb-1 tracking-tight">Leather Ankle Boots</h4>
+                                <p className="text-accent-gold text-sm font-semibold">$220.00</p>
                             </div>
                         </Link>
                     </div>
