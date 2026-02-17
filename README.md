@@ -260,7 +260,7 @@ This project demonstrates:
 
 ## 👨‍💻 Author
 
-**Fidel M**
+**Abhiram T E**
 
 Full-Stack Web Application Major Project
 Cloud Deployment using Microsoft Azure
