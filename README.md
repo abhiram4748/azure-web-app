@@ -9,10 +9,10 @@ This project demonstrates a scalable cloud-hosted architecture where a frontend 
 ## 🌐 Live Application
 
 Frontend (Azure Static Web App):
-`https://<your-static-web-app>.azurestaticapps.net`
+`https://ashy-sea-090fda60f.4.azurestaticapps.net/`
 
 Backend API (Azure App Service):
-`https://<your-backend-app>.azurewebsites.net`
+`https://luxe-ecommerce-api.azurewebsites.net/`
 
 ---
 
