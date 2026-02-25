@@ -45,7 +45,7 @@ The React frontend is deployed using Azure Static Web Apps with automatic CI/CD 
 
 ### Azure App Service (Backend API)
 
-![Azure App Service](app_service.png)
+![Azure App Service](App_service.png)
 
 The Node.js + Express backend REST API is hosted on Azure App Service and handles authentication, cart operations, and order processing.
 
