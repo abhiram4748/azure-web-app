@@ -1,18 +1,18 @@
-# Azure Full-Stack E-Commerce Web Application
+# ☁️ Azure Full-Stack E-Commerce Web Application
 
-A complete full-stack E-Commerce website built using **React + Node.js + Express + Azure SQL Database**, deployed on **Microsoft Azure Static Web Apps and Azure App Service**.
+A complete **cloud-hosted full-stack E-Commerce platform** built using **React, Node.js, Express, and Microsoft Azure SQL Database**, and deployed entirely on **Microsoft Azure Cloud Services**.
 
-This project demonstrates a scalable cloud-hosted architecture where a frontend client communicates with a backend API which securely connects to a cloud database.
+This project demonstrates real-world cloud architecture where a frontend client communicates with a backend REST API which securely connects to a managed cloud database.
 
 ---
 
 ## 🌐 Live Application
 
-Frontend (Azure Static Web App):
-`https://ashy-sea-090fda60f.4.azurestaticapps.net/`
+**Frontend (Azure Static Web App)**
+https://ashy-sea-090fda60f.4.azurestaticapps.net/
 
-Backend API (Azure App Service):
-`https://luxe-ecommerce-api.azurewebsites.net/`
+**Backend API (Azure App Service)**
+https://luxe-ecommerce-api.azurewebsites.net/
 
 ---
 
@@ -20,8 +20,42 @@ Backend API (Azure App Service):
 
 User Browser → React Frontend → Node/Express Backend → Azure SQL Database
 
-The frontend never connects directly to the database.
-All database operations are handled securely through the backend API.
+The frontend **never directly accesses the database**.
+All database operations are securely handled by the backend API.
+
+---
+
+## 📸 Azure Deployment Proof (Screenshots)
+
+### Resource Group
+
+![Azure Resource Group](resourse_group.png)
+
+All Azure services (Static Web App, App Service, SQL Database) are organized inside a single Azure Resource Group.
+
+---
+
+### Azure Static Web App (Frontend Hosting)
+
+![Azure Static Web App](static_web_app.png)
+
+The React frontend is deployed using Azure Static Web Apps with automatic CI/CD deployment through GitHub Actions.
+
+---
+
+### Azure App Service (Backend API)
+
+![Azure App Service](app_service.png)
+
+The Node.js + Express backend REST API is hosted on Azure App Service and handles authentication, cart operations, and order processing.
+
+---
+
+### Azure SQL Database Server
+
+![Azure SQL Database](SQL_project_server.png)
+
+Microsoft Azure SQL Database stores products, users, carts, and order history. The backend connects securely using environment variables.
 
 ---
 
@@ -30,31 +64,32 @@ All database operations are handled securely through the backend API.
 ### User Features
 
 * Browse products
-* View product details
+* Product detail view
 * Select size (S, M, L, XL)
 * Add to cart
-* Checkout
+* Checkout system
 * Place orders
 * View order history
 * Persistent login (local storage authentication)
 
-### Admin/Data Features
+### Data & Backend Features
 
 * Products stored in Azure SQL
-* Stock per size
-* Orders stored in database
-* Order items tracking
+* Order tracking
+* Cart storage
+* Stock management by size
 * User profile storage
+* REST API architecture
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
 ### Frontend
 
 * React (Vite)
-* React Router
-* Context API (State management)
+* React Router DOM
+* Context API (state management)
 * Tailwind CSS
 
 ### Backend
@@ -63,18 +98,18 @@ All database operations are handled securely through the backend API.
 * Express.js
 * CORS
 * dotenv
-* mssql (SQL Server driver)
+* mssql (Microsoft SQL Server driver)
 
 ### Database
 
 * Microsoft Azure SQL Database
 
-### Cloud & Deployment
+### Cloud & DevOps
 
-* Azure Static Web Apps (Frontend hosting)
-* Azure App Service (Backend hosting)
-* Azure SQL Database (Cloud database)
-* GitHub Actions (CI/CD)
+* Azure Static Web Apps (Frontend Hosting)
+* Azure App Service (Backend Hosting)
+* Azure SQL Database (Managed Cloud Database)
+* GitHub Actions (CI/CD Deployment)
 
 ---
 
@@ -83,15 +118,16 @@ All database operations are handled securely through the backend API.
 ```
 AWS_WEB/
 │
-├── src/                 # React frontend
+├── src/                 # React Frontend
 ├── public/
-├── dist/                # Build output
+├── dist/                # Production Build
 │
-├── server/              # Node.js backend
+├── server/              # Backend (Node.js API)
 │   ├── server.js
 │   ├── setup_complete_db.sql
 │   └── .env
 │
+├── screenshots/         # Azure proof images
 ├── package.json
 ├── vite.config.js
 └── README.md
@@ -114,11 +150,6 @@ cd <repo-name>
 
 ```
 npm install
-```
-
-Run frontend:
-
-```
 npm run dev
 ```
 
@@ -131,8 +162,6 @@ http://localhost:5173
 ---
 
 ### 3️⃣ Setup Backend
-
-Go to server folder:
 
 ```
 cd server
@@ -165,8 +194,8 @@ http://localhost:3000
 
 ## 🗄️ Database Setup
 
-1. Go to Azure Portal
-2. Open **Azure SQL Database**
+1. Open Azure Portal
+2. Go to **SQL Database**
 3. Open **Query Editor**
 4. Run:
 
@@ -200,38 +229,38 @@ PORT=3000
 ### Frontend (Azure Static Web App → Configuration → Application Settings)
 
 ```
-VITE_API_URL=https://your-backend-app.azurewebsites.net
+VITE_API_URL=https://luxe-ecommerce-api.azurewebsites.net
 ```
 
 ---
 
 ## ☁️ Deployment
 
-### Frontend Deployment
+### Frontend
 
-* Hosted on Azure Static Web Apps
-* Auto-deploys using GitHub Actions on push to `main`
+* Hosted using Azure Static Web Apps
+* Automatically deployed via GitHub Actions on push to `main`
 
-### Backend Deployment
+### Backend
 
 Deployed using Azure CLI:
 
 ```
-az webapp up --name <backend-name> --resource-group <rg-name> --runtime "NODE|20-lts"
+az webapp up --name luxe-ecommerce-api --resource-group DefaultResourceGroup-EUS --runtime "NODE|20-lts"
 ```
 
 ---
 
-## 🔌 API Endpoints
+## 🔌 REST API Endpoints
 
-| Method | Endpoint        | Description         |
-| ------ | --------------- | ------------------- |
-| GET    | /products       | Get all products    |
-| GET    | /products/:id   | Get single product  |
-| POST   | /cart           | Add item to cart    |
-| POST   | /orders         | Place order         |
-| GET    | /orders/:userId | Get order history   |
-| POST   | /users          | Create user profile |
+| Method | Endpoint        | Description        |
+| ------ | --------------- | ------------------ |
+| GET    | /products       | Get all products   |
+| GET    | /products/:id   | Get single product |
+| POST   | /cart           | Add to cart        |
+| POST   | /orders         | Place order        |
+| GET    | /orders/:userId | Order history      |
+| POST   | /users          | Create user        |
 
 ---
 
@@ -239,22 +268,23 @@ az webapp up --name <backend-name> --resource-group <rg-name> --runtime "NODE|20
 
 This project demonstrates:
 
-* Cloud deployment
-* REST API development
+* Full-stack web development
+* Cloud deployment on Microsoft Azure
+* REST API architecture
 * SQL database integration
-* Full-stack architecture
 * CI/CD pipelines
-* Environment variable configuration
+* Secure backend-database communication
+* Environment configuration
 * CORS handling
-* Authentication without third-party services
 
 ---
 
 ## ⚠️ Important Notes
 
-* Frontend never directly accesses the database.
+* The frontend never directly connects to the database.
 * All data passes through the backend API.
-* Azure firewall rules must allow backend server access.
+* Azure firewall rules allow backend access only.
+* Credentials are stored using environment variables (not hardcoded).
 
 ---
 
@@ -262,11 +292,11 @@ This project demonstrates:
 
 **Abhiram T E**
 
-Full-Stack Web Application Major Project
-Cloud Deployment using Microsoft Azure
+B.Tech Major Project
+Full-Stack Cloud Web Application Deployment using Microsoft Azure
 
 ---
 
 ## 📜 License
 
-This project is created for educational purposes.
+This project is created for academic and educational purposes.
