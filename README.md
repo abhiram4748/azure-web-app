@@ -292,7 +292,7 @@ This project demonstrates:
 
 **Abhiram T E**
 
-B.Tech Major Project
+Major Project
 Full-Stack Cloud Web Application Deployment using Microsoft Azure
 
 ---
