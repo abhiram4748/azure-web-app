@@ -176,7 +176,7 @@ luxe-ecommerce/
 │   ├── setup_complete_db.sql      # Full database schema script
 │   └── .env                       # Local environment variables (git-ignored)
 │
-├── 🖼️  resource_group.png          # Azure deployment screenshot
+├── 🖼️  resourse_group.png          # Azure deployment screenshot
 ├── 🖼️  static_web_app.png          # Azure deployment screenshot
 ├── 🖼️  App_service.png             # Azure deployment screenshot
 ├── 🖼️  SQL_project_server.png      # Azure deployment screenshot
@@ -332,7 +332,7 @@ All endpoints accept and return **JSON**. The API enforces CORS to allow request
 ## 📸 Screenshots
 
 ### Azure Resource Group
-![Resource Group](resource_group.png)
+![Resource Group](resourse_group.png)
 
 ### Azure Static Web App (Frontend)
 ![Static Web App](static_web_app.png)
