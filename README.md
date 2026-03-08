@@ -176,11 +176,10 @@ luxe-ecommerce/
 │   ├── setup_complete_db.sql      # Full database schema script
 │   └── .env                       # Local environment variables (git-ignored)
 │
-├── 📁 screenshots/                # Azure deployment proof
-│   ├── resource_group.png
-│   ├── static_web_app.png
-│   ├── App_service.png
-│   └── SQL_project_server.png
+├── 🖼️  resource_group.png          # Azure deployment screenshot
+├── 🖼️  static_web_app.png          # Azure deployment screenshot
+├── 🖼️  App_service.png             # Azure deployment screenshot
+├── 🖼️  SQL_project_server.png      # Azure deployment screenshot
 │
 ├── package.json                   # Frontend dependencies
 ├── vite.config.js                 # Vite configuration
@@ -332,14 +331,17 @@ All endpoints accept and return **JSON**. The API enforces CORS to allow request
 
 ## 📸 Screenshots
 
-> All deployment screenshots are in the `/screenshots` directory.
+### Azure Resource Group
+![Resource Group](resource_group.png)
 
-| File | What It Shows |
-|---|---|
-| `resource_group.png` | Azure Resource Group containing all services |
-| `static_web_app.png` | React frontend deployed on Azure Static Web Apps |
-| `App_service.png` | Node.js/Express API running on Azure App Service |
-| `SQL_project_server.png` | Azure SQL Database server configuration |
+### Azure Static Web App (Frontend)
+![Static Web App](static_web_app.png)
+
+### Azure App Service (Backend API)
+![App Service](App_service.png)
+
+### Azure SQL Database Server
+![SQL Database](SQL_project_server.png)
 
 ---
 
